@@ -19,16 +19,32 @@ lspconfig.pyright.setup ({
 })
 
 lspconfig.elixirls.setup ({
+  on_attach = on_attach,
+  capabilities = capabilities,
   cmd = {"/home/kawa/ls/elixirls/language_server.sh"},
   filetype = { "elixir", "eelixir", "heex", "surface" }
 })
 
 lspconfig.java_language_server.setup ({
+  on_attach = on_attach,
+  capabilities = capabilities,
   cmd = {"/home/kawa/ls/java-language-server/dist/lang_server_linux.sh"}
 })
 
+lspconfig.kotlin_language_server.setup ({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"/home/kawa/ls/kotlin-language-server/server/build/install/server/bin/kotlin-language-server"},
+})
+
+lspconfig.hls.setup ({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  ft = {"haskell", "lhaskell", "cabal"},
+})
+
 -- automatically add setup the servers
-local servers = {"zls", "pyright"}
+local servers = {"zls"} 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,

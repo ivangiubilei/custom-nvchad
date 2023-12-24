@@ -21,7 +21,8 @@ local plugins = {
     end,
   },
   {
-    "udalov/kotlin-vim"
+    "udalov/kotlin-vim",
+    lazy = false
   },
   {
     "williamboman/mason.nvim",
@@ -36,6 +37,7 @@ local plugins = {
         "zls",
         "kotlin-language-server",
         "java-language-server",
+        "hls",
       }
     }
   }
