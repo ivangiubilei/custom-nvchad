@@ -1,20 +1,14 @@
 local plugins = {
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
-    opts = function ()
-      return require "custom.configs.cpp-null-ls"
-    end,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
-    opts = function ()
-      return require "custom.configs.python-null-ls"
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
+
+    dependencies = {
+      "nvimtools/none-ls.nvim",
+      config = function ()
+        require "custom.configs.none-ls"
+      end,
+    },
+
     config = function ()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -38,6 +32,10 @@ local plugins = {
         "kotlin-language-server",
         "java-language-server",
         "hls",
+        "stylua",
+        "eslint",
+        "spell",
+        "astyle",
       }
     }
   }
